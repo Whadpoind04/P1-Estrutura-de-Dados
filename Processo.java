@@ -1,17 +1,21 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Processo {
-    int cont = 1;
+    private static int cont = 1;
     private int protocolo;
     private String solicitante;
     private String tipoServico;
     private int prioridade;
     private String dataHora;
 
-    public void Protocolo (String solicitante, String tipoServico, int prioridade){
+    public Processo(String solicitante, String tipoServico, int prioridade){
         this.protocolo = cont++;
         this.solicitante = solicitante;
         this.tipoServico = tipoServico;
         this.prioridade = prioridade;
-        this.dataHora = dataHora;
+        this.dataHora = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
     }
 
     public int getProtocolo(){
@@ -51,6 +55,9 @@ public class Processo {
         default -> "Desconhecida";
         };
         return "["+protocolo+"]" +"["+solicitante +"]"  + "[" +tipoServico + "]" + "[" +nivel +"]"+ "["+dataHora +"]" ;
+
+        
     }
+
 
 }
