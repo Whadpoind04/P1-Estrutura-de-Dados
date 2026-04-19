@@ -6,7 +6,9 @@ public class VetorDinamico {
 
 
     public VetorDinamico (int capacidadeInicial){
+
         this.capacidadeInicial = capacidadeInicial;
+
         dados = new Processo[capacidadeInicial];
         capacidade = capacidadeInicial;
         ocupacao = 0;
@@ -14,12 +16,25 @@ public class VetorDinamico {
     public int getCapacidade(){
         return capacidade;
     }
+    public int getOcupacao(){
+        return ocupacao;
+    }
+    
+
     public VetorDinamico(){
         this(10);
     }
     public boolean estaCheio(){
         return (capacidade==ocupacao);
+    }  
+
+    public Processo obter(int indice) {
+    if (indice < 0 || indice >= ocupacao) {
+        return null;
     }
+    return dados[indice];
+    }
+
     public void adicionar(Processo p){
         if(estaCheio()){
             dobraVetor();
