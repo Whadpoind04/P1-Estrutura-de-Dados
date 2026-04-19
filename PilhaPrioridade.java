@@ -26,6 +26,7 @@ public class PilhaPrioridade {
     public int tamanho() {
         return urgente.tamanho() + normal.tamanho() + baixa.tamanho();
     }
+    
 
     public void listar() {
         System.out.println("URGENTES:");
@@ -34,5 +35,13 @@ public class PilhaPrioridade {
         normal.imprimir();
         System.out.println("BAIXA:");
         baixa.imprimir();
+    }
+    
+    public boolean estaVazia() {
+        return urgente.estaVazia() && normal.estaVazia() && baixa.estaVazia();
+    }
+    public void limpar() {
+        while (tamanho() > 0)
+            pop();
     }
 }
